@@ -1,0 +1,71 @@
+---
+import Layout from "@/layouts/main.astro";
+import Hero from "@/components/Hero.astro";
+
+import hero_img from "@/assets/images/contact-us.jpg";
+import social_img from "@/assets/images/social/kontakt.jpg";
+---
+
+<Layout
+  title="Kontakt | connect724"
+  description="Unser Leistungsportfolio: kontaktlose Zustellung (Printprodukte, Lebensmittel, Blumen), Konfektion"
+  og_img={social_img}
+  og_img_alt="Jobs"
+>
+  <Hero
+    image={hero_img}
+    image_alt="connect724 GmbH"
+    variant="small"
+    objectPosition={"100% 60%"}
+  >
+    <div
+      class="c-min-padding mx-auto w-full max-w-screen-xl space-y-2 text-background"
+    >
+      <h1 class="text-5xl md:text-6xl lg:text-6xl font-bold">Kontakt</h1>
+      <p class="text-balance font-light text-3xl lg:text-4xl">
+        Brauchen Kontakte mit uns?
+      </p>
+    </div>
+  </Hero>
+  <div
+    class="flex flex-col w-full inset-80 py-20 max-w-screen-xl mx-auto c-min-padding"
+  >
+    <div class="flex flex-col lg:flex-row gap-x-16 gap-y-8 justify-between">
+      <div class="space-y-4 shrink-0">
+        <h2 class="text-4xl font-light">Anschrift</h2>
+        <p>
+          <span class="text-xl">connect724 GmbH</span><br /><span data-adress-kontakt></span><br
+          /><span data-plz-kontakt></span>
+        </p>
+        <p>
+          Telefon: <a href="tel:+4357240" class="c-link">+43 (0)5 7240</a><br
+          />E-Mail: <a href="mailto:office@connect724.at" class="c-link"
+            >office@connect724.at</a>
+        </p>
+      </div>
+
+      <a data-url-kontakt target="_blank" rel="noreferrer noopener nofollow" class="border rounded-md overflow-hidden hover:border-primary duration-200 hover:ring-2 hover:ring-primary/50">
+        <img data-img-kontakt alt="connect724 GmbH Adress" class="w-auto" />
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import dateCheck from "@/utils/dateCheck";
+  const adress = document.querySelector("[data-adress-kontakt]")!;
+  const plz = document.querySelector("[data-plz-kontakt]")!;
+  const url = document.querySelector("[data-url-kontakt]")! as HTMLLinkElement;
+  const img = document.querySelector("[data-img-kontakt]")! as HTMLImageElement;
+  if (dateCheck()) {
+    adress.textContent = "Hainburger Straße 33";
+    plz.textContent = "1030 Wien";
+    url.href = "https://maps.app.goo.gl/ovF5RZGjSqJ9gBY68";
+    img.src = "/img/c724-anfahrt-2-google.jpg";
+  } else {
+    adress.textContent = "Heizwerkstraße 6a";
+    plz.textContent = "1230 Wien";
+    url.href = "https://maps.app.goo.gl/MKK7oqi8TVg9Rcrr6";
+    img.src = "/img/c724-anfahrt-1-google.jpg";
+  }
+</script>

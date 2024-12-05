@@ -1,0 +1,105 @@
+---
+import Layout from "@/layouts/main.astro";
+
+import imgImpressum from "@/assets/images/impressum.jpg";
+---
+
+<Layout
+  title="Impressum | connect724"
+  description="Impressum"
+  og_img={imgImpressum}
+  og_img_alt="connect724 GmbH"
+>
+  <div class="max-w-screen-xl mx-auto">
+    <div class="h-[136px]"></div>
+    <div class="grid pb-16 xl:py-20">
+      <div class="flex flex-col space-y-8 c-min-padding">
+        <div>
+          <h2 class="font-light text-4xl leading-tight lg:text-5xl">
+            Impressum
+          </h2>
+        </div>
+        <div class="space-y-3 max-w-screen-lg">
+          <p class="text-xl" itemscope="" itemtype="https://schema.org/Organization">
+            Information und Offenlegung der{" "}
+            <span itemprop="legalName">connect724 GmbH</span> gemäß § 5 E-Commerce-Gesetz (BGBl I 2001/152 idgF) und § 24 und § 25 Mediengesetz (BGBl 314/1981 idgF) sowie § 14 Unternehmensgesetzbuch (BGBl I 2005/120 idgF) Firma bzw. Medieninhaber:
+          </p>
+          <p>
+            <span itemprop="name"  class="text-xl">
+              connect724 GmbH<span></span>
+            </span>
+          </p>
+
+            <a
+              data-url-impressum
+              target="_blank"
+              class="c-link"
+              itemprop="address"
+              itemscope=""
+              itemtype="https://schema.org/PostalAddress"
+            >
+              <span itemprop="streetAddress" data-adress-impressum></span>,{" "}
+              <span itemprop="postalCode" data-plz-impressum></span>{" "}
+              <span itemprop="addressLocality">Wien</span>
+            </a>
+
+          <p class="pb-3">
+            <span class="text-secondary">Telefon:</span>{" "}
+            <span itemprop="telephone">
+              <a href="tel:004357240" class="c-link">+43 (0)5 7240</a>
+            </span>
+            <br />
+            <span class="text-secondary">E-Mail:</span>{" "}
+            <a href="mailto:office@connect724.at" class="c-link">
+              <span itemprop="email">office@connect724.at</span>
+            </a>
+          </p>
+          <p>
+            <span class="text-secondary">Unternehmensgegenstand:</span> Vertrieb von Medienwerken
+            <br />
+            <span class="text-secondary">Firmenbuchnummer:</span> FN 208132b
+            <br />
+            <span class="text-secondary">Firmenbuchgericht:</span> Handelsgericht
+            Wien
+            <br />
+            <span class="text-secondary">Gewerbebehörde:</span> Magistratisches
+            Bezirksamt für den <span data-plz-short-impressum></span>. Wiener Gemeindebezirk
+            <br />
+            <span class="text-secondary">Kammermitgliedschaft:</span> Wirtschaftskammer
+            <br />
+            <span class="text-secondary">UID-Nummer:</span> ATU51979701
+            <br />
+            <span class="text-secondary">Anwendbare Vorschriften:</span> Österr. Gewerbeordnung (<a href="https://www.ris.bka.gv.at" rel="noopener noreferrer nofollow" class="c-link">www.ris.bka.gv.at</a>)
+          </p>
+          <p>
+            <span class="text-secondary">Gesellschafter:</span>
+            <br />
+            &gt;redmail Logistik &amp; Zustellservice GmbH, Wien | Unternehmensgegenstand:
+            Vertrieb von Medienwerken
+            <br />
+            Standard Verlags GmbH, Wien | Unternehmensgegenstand: Medienwesen
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import dateCheck from "@/utils/dateCheck";
+  const adress = document.querySelector("[data-adress-impressum]")!;
+  const plz = document.querySelector("[data-plz-impressum]")!;
+  const plzShort = document.querySelector("[data-plz-short-impressum]")!;
+  const url = document.querySelector("[data-url-impressum]")! as HTMLLinkElement;
+  if (dateCheck()) {
+    adress.textContent = "Hainburger Straße 33";
+    url.href = "https://maps.app.goo.gl/ovF5RZGjSqJ9gBY68";
+    plz.textContent = "1030";
+    plzShort.textContent = "3";
+  } else {
+    adress.textContent = "Heizwerkstraße 6a";
+    url.href = "https://maps.app.goo.gl/MKK7oqi8TVg9Rcrr6";
+    plz.textContent = "1230";
+    plzShort.textContent = "23";
+  }
+</script>

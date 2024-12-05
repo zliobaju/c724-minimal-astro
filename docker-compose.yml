@@ -1,0 +1,9 @@
+services:
+
+  astro-app:
+    container_name: c724-minimal-website
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - 80:80

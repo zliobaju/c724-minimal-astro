@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+export interface Props {
+  image: ImageMetadata;
+  image_alt: string;
+  objectPosition?: number | string | undefined;
+  variant?: "small" | "normal";
+}
+
+const { image, image_alt, objectPosition, variant = "normal" } = Astro.props;
+---
+
+<div class=`relative z-0 shadow-c724 ${variant === "small" ? "h-[400px] md:h-[420px]" : "h-[550px] md:min-h-[500px] md:h-[65vh]"}`>
+  <Image
+    src={image}
+    alt={image_alt}
+    loading="eager"
+    sizes="(max-width: 768px) 100vw, 1920px"
+    class="bg-secondary-dark h-full w-full object-cover duration-500"
+    style={objectPosition
+      ? {
+          objectPosition:
+            typeof objectPosition === "string" ? `${objectPosition}` : `${objectPosition}%`,
+        }
+      : null}
+    quality={85}
+    transition:name="hero"
+  />
+  <div class="absolute inset-0 flex h-full w-full items-end" transition:name="heroBg">
+    <div class="header-gradient flex h-full w-full items-end pb-20">
+      <slot />
+    </div>
+  </div>
+</div>

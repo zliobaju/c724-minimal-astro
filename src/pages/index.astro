@@ -1,0 +1,38 @@
+---
+import Layout from "@/layouts/main.astro";
+import Hero from "@/components/Hero.astro";
+
+import hero_img from "@/assets/images/title-medienlogistik.jpg";
+import social_img from "@/assets/images/social/lagerung.jpg";
+---
+
+<Layout
+  title="connect724 - wir verbinden Ihre Produkte mit Ihren Kunden. | connect724"
+  description="Unser Leistungsportfolio: kontaktlose Zustellung (Printprodukte, Lebensmittel, Blumen), Konfektion"
+  og_img={social_img}
+  og_img_alt="Logistiks"
+>
+  <main>
+    <Hero image={hero_img} image_alt="connect724 GmbH">
+      <div
+        class="c-min-padding mx-auto w-full max-w-screen-xl space-y-2 text-background"
+      >
+        <p class="text-balance font-normal text-3xl lg:text-4xl">
+          Herzlich willkommen<br> bei der connect724 GmbH.
+        </p>
+        <h1 class="text-5xl md:text-6xl lg:text-6xl font-bold text-balance">Wir verbinden Ihre Produkte mit Ihren Kunden.</h1>
+      </div>
+    </Hero>
+    <div class="flex flex-col items-center w-full inset-80 py-20">
+      <div class="max-w-screen-xl c-min-padding w-full">
+        <div class="space-y-3 max-w-screen-lg">
+          <p class="text-xl text-balance">
+            Als 50:50 Tochter der >redmail Logistik & Zustellservice GmbH und
+            der STANDARD Verlagsgesellschaft m.b.H. liegt unser Fokus auf der
+            Medienlogistik im Osten Österreichs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

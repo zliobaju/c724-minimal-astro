@@ -1,0 +1,55 @@
+---
+import "@/styles/base.css";
+import Footer from "@/components/layouts/Footer.astro";
+import Header from "@/components/layouts/Header.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  noindex?: boolean;
+  og_img?: ImageMetadata;
+  og_img_alt?: string;
+}
+
+const {
+  title,
+  description = "",
+  noindex = false,
+  og_img,
+  og_img_alt = "",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta property="og:site_name" content="connect724 GmbH" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale " content="de_AT" />
+    <meta property="og:type" content="website" />
+    {
+      og_img && (
+        <meta
+          property="og:image"
+          content={`https://connect724.at/${og_img.src}`}
+        />
+      )
+    }
+    {og_img_alt && <meta property="og:image:alt" content={og_img_alt} />}
+  </head>
+  <body class="min-h-screen flex flex-col justify-between">
+    <div>
+      <Header />
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>

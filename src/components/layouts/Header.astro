@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+---
+
+<header class="absolute top-0 left-0 w-full z-10"  transition:name="mainNav">
+  <div
+    x-data="{ open: false }"
+    x-cloak
+    class="relative mx-auto px-8 xl:px-20 flex items-center gap-x-8 justify-between"
+  >
+    <div class="relative z-10 shrink-0 bg-background py-4 px-4 rounded-b-lg">
+      <a href="/">
+        <Image
+          src="/c724-logo.svg"
+          alt="connect724 Logo"
+          width={1200}
+          height={600}
+          class="w-[150px] md:w-[200px]"
+          loading={"eager"}
+        />
+      </a>
+    </div>
+
+    <div class="max-md:hidden">
+      <nav>
+        <ul class="flex justify-end gap-x-4 flex-wrap gap-y-2">
+          <li>
+            <a
+              href="/"
+              class="inline-flex bg-primary hover:bg-primary-dark py-2 px-8 rounded-full text-primary-foreground text-xl duration-150"
+            >
+              Unternehmen
+            </a>
+          </li>
+          <li>
+            <a
+              href="/jobs"
+              class="inline-flex bg-primary hover:bg-primary-dark py-2 px-8 rounded-full text-primary-foreground text-xl duration-150"
+            >
+              Jobs
+            </a>
+          </li>
+          <li>
+            <a
+              href="/kontakt"
+              class="inline-flex bg-primary hover:bg-primary-dark py-2 px-8 rounded-full text-primary-foreground text-xl duration-150"
+            >
+              Kontakt
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="md:hidden relative z-10 flex justify-end">
+      <div
+        x-on:click="open = !open"
+        class="inline-flex bg-primary hover:bg-primary-dark p-3 rounded-full text-primary-foreground text-xl duration-150"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-menu"
+          ><line x1="4" x2="20" y1="12" y2="12"></line><line
+            x1="4"
+            x2="20"
+            y1="6"
+            y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg
+        >
+      </div>
+    </div>
+
+    <div
+      x-show="open"
+      class="md:hidden bg-background absolute top-0 left-0 right-0 w-full z-0 pt-32 p-10"
+    >
+      <ul class="text-center flex flex-col gap-y-2">
+        <li>
+          <a
+            href="/"
+            class="inline-flex hover:text-primary text-xl px-4 py-1.5 rounded-full"
+          >
+            Unternehmen
+          </a>
+        </li>
+        <li>
+          <a
+            href="/jobs"
+            class="inline-flex hover:text-primary text-xl px-4 py-1.5 rounded-full"
+          >
+            Jobs
+          </a>
+        </li>
+        <li>
+          <a
+            href="/kontakt"
+            class="inline-flex hover:text-primary text-xl px-4 py-1.5 rounded-full"
+          >
+            Kontakt
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
