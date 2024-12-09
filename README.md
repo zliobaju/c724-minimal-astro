@@ -10,16 +10,16 @@ Um zu beginnen - Abhängigkeiten installieren:
 npm install
 ```
 
-Live Lokal Entwicklung:
-
-```bash
-npm run dev
-```
+> Live Lokal Entwicklung:
+>
+> ```bash
+> npm run dev
+> ```
 
 Die Firmenadresse auf der Website ist zeitabhängig und ändert sich zu bestimmten Zeiten. Das Datum kann in der Datei `.env` geändert werden.
 
 ```
-PUBLIC_CHANGE_DATE="2025-01-25 03:00:00"
+PUBLIC_CHANGE_DATE="2025-01-31 03:00:00"
 ```
 
 ## 🚀 Ende
